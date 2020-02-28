@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-admin.site.site_header = 'My-Site Administración'
+admin.site.site_header = 'My-Site Administration'
 admin.site.index_title = 'Sitio de Administración'
-admin.site.site_title = 'My-Site Administración'
+admin.site.site_title = 'My-Site Administration'
 
 urlpatterns = [
     path('modadmin/', include('modadmin.urls')),
     path('admin/', admin.site.urls),
+    path(' ', admin.site.urls),
 ]

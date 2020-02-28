@@ -1,19 +1,19 @@
 from django.contrib import admin
 
-from .models import Choice, Question
+from .models import Function, JobPosition, Department
 
-class ChoiceInline(admin.TabularInline):
-    model = Choice
+class JobPositionInline(admin.TabularInline):
+    model = JobPosition
     extra = 3
 
-class QuestionAdmin(admin.ModelAdmin):
+class DepartmentAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,               {'fields': ['question_text']}),
+        (None,               {'fields': ['department_name']}),
         ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
     ]
-    inlines = [ChoiceInline]
-    list_display = ('question_text', 'pub_date', 'was_published_recently')
+    inlines = [JobPositionInline, ]
+    list_display = ('department_name', 'pub_date', 'was_published_recently')
     list_filter = ['pub_date']
-    search_fields = ['question_text']
+    search_fields = ['deparment_name']
 
-admin.site.register(Question, QuestionAdmin)
+admin.site.register(Department, DepartmentAdmin)
