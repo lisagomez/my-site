@@ -21,7 +21,6 @@ admin.site.index_title = 'Sitio de Administración'
 admin.site.site_title = 'My-Site Administration'
 
 urlpatterns = [
-    path('modadmin/', include('modadmin.urls')),
     path('admin/', admin.site.urls),
     path(' ', admin.site.urls),
 ]
